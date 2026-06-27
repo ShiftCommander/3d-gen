@@ -1,43 +1,57 @@
-<img src="assets/logo.webp" width="100%" align="center">
-<h1 align="center">Structured 3D Latents<br>for Scalable and Versatile 3D Generation</h1>
-<p align="center"><a href="https://arxiv.org/abs/2412.01506"><img src='https://img.shields.io/badge/arXiv-Paper-red?logo=arxiv&logoColor=white' alt='arXiv'></a>
-<a href='https://microsoft.github.io/TRELLIS/'><img src='https://img.shields.io/badge/Project_Page-Website-green?logo=googlechrome&logoColor=white' alt='Project Page'></a>
-<a href='https://huggingface.co/spaces/Microsoft/TRELLIS'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Live_Demo-blue'></a>
-</p>
-<p align="center"><img src="assets/teaser.png" width="100%"></p>
+<div align="center">
+  <img src="assets/logo.webp" width="100%" alt="TRELLIS Logo">
 
-<span style="font-size: 16px; font-weight: 600;">T</span><span style="font-size: 12px; font-weight: 700;">RELLIS</span> is a large 3D asset generation model. It takes in text or image prompts and generates high-quality 3D assets in various formats, such as Radiance Fields, 3D Gaussians, and meshes. The cornerstone of <span style="font-size: 16px; font-weight: 600;">T</span><span style="font-size: 12px; font-weight: 700;">RELLIS</span> is a unified Structured LATent (<span style="font-size: 16px; font-weight: 600;">SL</span><span style="font-size: 12px; font-weight: 700;">AT</span>) representation that allows decoding to different output formats and Rectified Flow Transformers tailored for <span style="font-size: 16px; font-weight: 600;">SL</span><span style="font-size: 12px; font-weight: 700;">AT</span> as the powerful backbones. We provide large-scale pre-trained models with up to 2 billion parameters on a large 3D asset dataset of 500K diverse objects. <span style="font-size: 16px; font-weight: 600;">T</span><span style="font-size: 12px; font-weight: 700;">RELLIS</span> significantly surpasses existing methods, including recent ones at similar scales, and showcases flexible output format selection and local 3D editing capabilities which were not offered by previous models.
+  <h1>Structured 3D Latents<br>for Scalable and Versatile 3D Generation</h1>
+
+  <p>
+    <a href="https://arxiv.org/abs/2412.01506"><img src="https://img.shields.io/badge/arXiv-Paper-red?logo=arxiv&logoColor=white" alt="arXiv"></a>
+    <a href="https://microsoft.github.io/TRELLIS/"><img src="https://img.shields.io/badge/Project_Page-Website-green?logo=googlechrome&logoColor=white" alt="Project Page"></a>
+    <a href="https://huggingface.co/spaces/Microsoft/TRELLIS"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Live_Demo-blue" alt="Hugging Face Demo"></a>
+    <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
+  </p>
+
+  <p>
+    <img src="assets/teaser.png" width="100%" alt="Teaser Image">
+  </p>
+</div>
+
+<span style="font-size: 16px; font-weight: 600;">T</span><span style="font-size: 12px; font-weight: 700;">RELLIS</span> is a large 3D asset generation model. It takes in text or image prompts and generates high-quality 3D assets in various formats, such as Radiance Fields, 3D Gaussians, and meshes. The cornerstone of <span style="font-size: 16px; font-weight: 600;">T</span><span style="font-size: 12px; font-weight: 700;">RELLIS</span> is a unified Structured LATent (<span style="font-size: 16px; font-weight: 600;">SL</span><span style="font-size: 12px; font-weight: 700;">AT</span>) representation that allows decoding to different output formats and Rectified Flow Transformers tailored for <span style="font-size: 16px; font-weight: 600;">SL</span><span style="font-size: 12px; font-weight: 700;">AT</span> as the powerful backbones.
+
+We provide large-scale pre-trained models with up to 2 billion parameters on a large 3D asset dataset of 500K diverse objects. <span style="font-size: 16px; font-weight: 600;">T</span><span style="font-size: 12px; font-weight: 700;">RELLIS</span> significantly surpasses existing methods, including recent ones at similar scales, and showcases flexible output format selection and local 3D editing capabilities which were not offered by previous models.
 
 ***Check out our [Project Page](https://microsoft.github.io/TRELLIS/) for more videos and interactive demos!***
 
-<!-- Features -->
+*[Lire en français](README_fr.md)*
+
+---
+
+## 📑 Table of Contents
+
+- [🌟 Features](#-features)
+- [📦 Installation](#-installation)
+- [🤖 Pretrained Models](#-pretrained-models)
+- [💡 Usage](#-usage)
+- [📚 Dataset](#-dataset)
+- [🏋️‍♂️ Training](#️-training)
+- [⏩ Updates](#-updates)
+- [🤝 Contributing and Support](#-contributing-and-support)
+- [⚖️ License](#️-license)
+- [📜 Citation](#-citation)
+
+---
+
 ## 🌟 Features
+
 - **High Quality**: It produces diverse 3D assets at high quality with intricate shape and texture details.
 - **Versatility**: It takes text or image prompts and can generate various final 3D representations including but not limited to *Radiance Fields*, *3D Gaussians*, and *meshes*, accommodating diverse downstream requirements.
 - **Flexible Editing**: It allows for easy editings of generated 3D assets, such as generating variants of the same object or local editing of the 3D asset.
 
-<!-- Updates -->
-## ⏩ Updates
+---
 
-**03/25/2025**
-- Release training code.
-- Release **TRELLIS-text** models and asset variants generation.
-  - Examples are provided as [example_text.py](example_text.py) and [example_variant.py](example_variant.py).
-  - Gradio demo is provided as [app_text.py](app_text.py).
-  - *Note: It is always recommended to do text to 3D generation by first generating images using text-to-image models and then using TRELLIS-image models for 3D generation. Text-conditioned models are less creative and detailed due to data limitations.*
-
-**12/26/2024**
-- Release [**TRELLIS-500K**](https://github.com/microsoft/TRELLIS#-dataset) dataset and toolkits for data preparation.
-
-**12/18/2024**
-- Implementation of multi-image conditioning for **TRELLIS-image** model. ([#7](https://github.com/microsoft/TRELLIS/issues/7)). This is based on tuning-free algorithm without training a specialized model, so it may not give the best results for all input images.
-- Add Gaussian export in `app.py` and `example.py`. ([#40](https://github.com/microsoft/TRELLIS/issues/40))
-
-<!-- Installation -->
 ## 📦 Installation
 
 ### Prerequisites
-- **System**: The code is currently tested only on **Linux**.  For windows setup, you may refer to [#3](https://github.com/microsoft/TRELLIS/issues/3) (not fully tested).
+- **System**: The code is currently tested only on **Linux**. For windows setup, you may refer to [#3](https://github.com/microsoft/TRELLIS/issues/3) (not fully tested).
 - **Hardware**: An NVIDIA GPU with at least 16GB of memory is necessary. The code has been verified on NVIDIA A100 and A6000 GPUs.  
 - **Software**:   
   - The [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit-archive) is needed to compile certain submodules. The code has been tested with CUDA versions 11.8 and 12.2.  
@@ -83,7 +97,8 @@
         --demo                  Install all dependencies for demo
     ```
 
-<!-- Pretrained Models -->
+---
+
 ## 🤖 Pretrained Models
 
 We provide the following pretrained models:
@@ -109,7 +124,8 @@ If you prefer loading the model from local, you can download the model files fro
 TrellisImageTo3DPipeline.from_pretrained("/path/to/TRELLIS-image-large")
 ```
 
-<!-- Usage -->
+---
+
 ## 💡 Usage
 
 ### Minimal Example
@@ -198,14 +214,14 @@ python app.py
 
 Then, you can access the demo at the address shown in the terminal.
 
+---
 
-<!-- Dataset -->
 ## 📚 Dataset
 
 We provide **TRELLIS-500K**, a large-scale dataset containing 500K 3D assets curated from [Objaverse(XL)](https://objaverse.allenai.org/), [ABO](https://amazon-berkeley-objects.s3.amazonaws.com/index.html), [3D-FUTURE](https://tianchi.aliyun.com/specials/promotion/alibaba-3d-future), [HSSD](https://huggingface.co/datasets/hssd/hssd-models), and [Toys4k](https://github.com/rehg-lab/lowshot-shapebias/tree/main/toys4k), filtered based on aesthetic scores. Please refer to the [dataset README](DATASET.md) for more details.
 
+---
 
-<!-- Training -->
 ## 🏋️‍♂️ Training
 
 TRELLIS’s training framework is organized to provide a flexible and modular approach to building and fine-tuning large-scale 3D generation models. The training code is centered around `train.py` and is structured into several directories to clearly separate dataset handling, model components, training logic, and visualization utilities.
@@ -322,8 +338,37 @@ python train.py \
 
 Adjust the file paths and parameters to match your experimental setup.
 
+---
 
-<!-- License -->
+## ⏩ Updates
+
+**03/25/2025**
+- Release training code.
+- Release **TRELLIS-text** models and asset variants generation.
+  - Examples are provided as [example_text.py](example_text.py) and [example_variant.py](example_variant.py).
+  - Gradio demo is provided as [app_text.py](app_text.py).
+  - *Note: It is always recommended to do text to 3D generation by first generating images using text-to-image models and then using TRELLIS-image models for 3D generation. Text-conditioned models are less creative and detailed due to data limitations.*
+
+**12/26/2024**
+- Release [**TRELLIS-500K**](https://github.com/microsoft/TRELLIS#-dataset) dataset and toolkits for data preparation.
+
+**12/18/2024**
+- Implementation of multi-image conditioning for **TRELLIS-image** model. ([#7](https://github.com/microsoft/TRELLIS/issues/7)). This is based on tuning-free algorithm without training a specialized model, so it may not give the best results for all input images.
+- Add Gaussian export in `app.py` and `example.py`. ([#40](https://github.com/microsoft/TRELLIS/issues/40))
+
+---
+
+## 🤝 Contributing and Support
+
+We highly appreciate contributions to this project! Whether you want to report a bug, suggest a new feature, improve the documentation, or submit a Pull Request, your help is welcome.
+
+- For specific issues or feature requests, please check our existing [Issues](https://github.com/microsoft/TRELLIS/issues) or open a new one.
+- For more details on our code of conduct, please read the [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
+- For help with technical support, refer to [SUPPORT.md](SUPPORT.md).
+- For security-related issues, please check [SECURITY.md](SECURITY.md).
+
+---
+
 ## ⚖️ License
 
 TRELLIS models and the majority of the code are licensed under the [MIT License](LICENSE). The following submodules may have different licenses:
@@ -332,8 +377,8 @@ TRELLIS models and the majority of the code are licensed under the [MIT License]
 
 - [**Modified Flexicubes**](https://github.com/MaxtirError/FlexiCubes): In this project, we used a modified version of [Flexicubes](https://github.com/nv-tlabs/FlexiCubes) to support vertex attributes. This modified version is licensed under the [LICENSE](https://github.com/nv-tlabs/FlexiCubes/blob/main/LICENSE.txt).
 
+---
 
-<!-- Citation -->
 ## 📜 Citation
 
 If you find this work helpful, please consider citing our paper:
@@ -346,4 +391,3 @@ If you find this work helpful, please consider citing our paper:
     year    = {2024}
 }
 ```
-
