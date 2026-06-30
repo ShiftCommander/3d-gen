@@ -18,10 +18,10 @@
 
 ## HeyGen
 - Group ID: fee72499a8594c179df61922ddd33ed0
-- Voice ID:
-- Voice Name:
-- Voice Designed:
-- Voice Seed:
+- Voice ID: 64cc0b129ac34e04a521cb4627126923
+- Voice Name: Sylvie - Professional
+- Voice Designed: false
+- Voice Seed: N/A (catalogue, pas de design)
 - Looks: landscape=255fdb942ee840e1ae41d247f9371936
 - Last Synced: 2026-06-27T00:00:00Z
 

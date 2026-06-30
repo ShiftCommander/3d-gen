@@ -18,10 +18,10 @@
 
 ## HeyGen
 - Group ID: 39d9608e0f954c1097f27452629ca064
-- Voice ID:
-- Voice Name:
-- Voice Designed:
-- Voice Seed:
+- Voice ID: b32ea9471bb74ee688b75dde1e2ae6d7
+- Voice Name: Henri - Natural
+- Voice Designed: false
+- Voice Seed: N/A (catalogue, pas de design)
 - Looks: landscape=80ad671ec7c84e0e976831092d346fe0
 - Last Synced: 2026-06-27T00:00:00Z
 
