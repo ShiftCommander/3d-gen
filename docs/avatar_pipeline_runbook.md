@@ -2,72 +2,40 @@
 
 Pipeline choice is documented in [avatar_pipeline_decision.md](avatar_pipeline_decision.md).
 
-This runbook executes the full plan for:
-- Source image: `/Users/tim/Desktop/avatar-man-1 (1).png`
-- High quality texture: `2048`
-- Delivery: textured `GLB` + preview turntable
+There is no local generation script in this repo — generation runs on Colab or Kaggle via
+Hunyuan3D, then the delivery bundle is downloaded and reviewed locally.
 
-## 1) Prepare Linux GPU environment
+## 1) Run Hunyuan3D on Colab or Kaggle
 
-Use a Linux machine with NVIDIA GPU (>=16 GB VRAM), CUDA toolchain, and Python 3.10+.
-For free cloud runs, use the Kaggle or Colab quickstart instead of trying to run this on macOS.
+- Colab: open [colab_hunyuan3d_avatar.ipynb](</Users/tim/Code environments/TRELLIS/notebooks/colab_hunyuan3d_avatar.ipynb>)
+  and follow [colab_hunyuan3d_quickstart_avatar.md](colab_hunyuan3d_quickstart_avatar.md).
+- Kaggle: open [kaggle_hunyuan3d_avatar_embedded.ipynb](</Users/tim/Code environments/TRELLIS/notebooks/kaggle_hunyuan3d_avatar_embedded.ipynb>)
+  and follow [kaggle_quickstart_avatar.md](kaggle_quickstart_avatar.md).
 
-From repo root (recommended):
+Both notebooks:
+- generate the shape with `Hunyuan3D-2mini`
+- attempt the texture with `Hunyuan3D-Paint`
+- fail on purpose if `texture_status != PASS`, so an untextured mesh never gets mistaken for a
+  finished delivery
+- produce a downloadable `*_hunyuan_delivery.zip`
 
-```bash
-./scripts/bootstrap_gpu_linux.sh
-```
-
-If `flash-attn` is not supported by the GPU, use xformers backend instead.
-Preflight report is written to:
-- `outputs/avatar-man-1/qa/preflight_report.json`
-
-## 2) Run TRELLIS generation (3 variants, fixed seeds)
+## 2) Review the downloaded bundle locally
 
 ```bash
-./scripts/run_avatar_pipeline.sh "/Users/tim/Desktop/avatar-man-1 (1).png" "outputs/avatar-man-1" 2048
-```
-If you already validated the machine and want to skip preflight:
-```bash
-SKIP_PREFLIGHT=1 ./scripts/run_avatar_pipeline.sh "/Users/tim/Desktop/avatar-man-1 (1).png" "outputs/avatar-man-1" 2048
+python3 scripts/review_avatar_delivery.py --bundle "/path/to/avatar-man-1_hunyuan_delivery.zip"
 ```
 
-This performs:
-- source copy/preprocess to `assets/custom/avatar-man-1.png`
-- generation for seeds `11, 23, 37`
-- automatic best-seed selection from visual scoring (`selection_mode=auto`)
-- raw exports under `outputs/avatar-man-1/variants/`
-- selected candidate copied to:
-  - `outputs/avatar-man-1/avatar-man-1_final_raw.glb`
-  - `outputs/avatar-man-1/avatar-man-1_turntable_raw.mp4`
-- manifest metadata: `outputs/avatar-man-1/manifest.json`
-- QA board + summary:
-  - `outputs/avatar-man-1/qa/comparison_board.png`
-  - `outputs/avatar-man-1/qa/qa_summary.json`
-- Acceptance audit:
-  - `outputs/avatar-man-1/qa/acceptance_report.json` (`PASS` or `FAIL`)
-- Delivery bundle (created only after audit `PASS`):
-  - Folder: `outputs/avatar-man-1/avatar-man-1_delivery/`
-  - Zip: `outputs/avatar-man-1/avatar-man-1_delivery.zip`
-- output validation: `scripts/validate_avatar_outputs.py`
+## 3) Optional: Blender cleanup, UV, bake
 
-## 3) Blender cleanup, UV, bake, final export
-
-If Blender is in PATH, `run_avatar_pipeline.sh` already triggers:
+If you need a manual cleanup/bake pass on the downloaded GLB and Blender is in PATH:
 
 ```bash
 blender -b -P scripts/blender_cleanup_bake.py -- \
-  --input-glb outputs/avatar-man-1/avatar-man-1_final_raw.glb \
-  --out-glb outputs/avatar-man-1/avatar-man-1_final.glb \
-  --tex-dir outputs/avatar-man-1/textures \
+  --input-glb /path/to/avatar-man-1_final_raw.glb \
+  --out-glb /path/to/avatar-man-1_final.glb \
+  --tex-dir /path/to/textures \
   --texture-size 2048
 ```
-
-Produced files:
-- `outputs/avatar-man-1/avatar-man-1_final.glb`
-- `outputs/avatar-man-1/textures/baseColor.png`
-- `outputs/avatar-man-1/textures/normal.png`
-- `outputs/avatar-man-1/textures/roughness.png`
 
 ## 4) Validation checklist
 

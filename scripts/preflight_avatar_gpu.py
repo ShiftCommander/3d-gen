@@ -53,9 +53,6 @@ def main():
     )
     checks.append({"name": "torch_cuda_check", "ok": rc == 0 and "cuda_available=True" in out, "detail": out})
 
-    rc, out = run_cmd([sys.executable, "-c", "import trellis; print('ok')"])
-    checks.append({"name": "python_import:trellis", "ok": rc == 0, "detail": out})
-
     ok = all(c["ok"] for c in checks)
     report = {"status": "PASS" if ok else "FAIL", "checks": checks}
     report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
