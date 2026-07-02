@@ -7,9 +7,9 @@ Hunyuan3D, then the delivery bundle is downloaded and reviewed locally.
 
 ## 1) Run Hunyuan3D on Colab or Kaggle
 
-- Colab: open [colab_hunyuan3d_avatar.ipynb](</Users/tim/Code environments/TRELLIS/notebooks/colab_hunyuan3d_avatar.ipynb>)
+- Colab: open [colab_hunyuan3d_avatar.ipynb](../notebooks/colab_hunyuan3d_avatar.ipynb)
   and follow [colab_hunyuan3d_quickstart_avatar.md](colab_hunyuan3d_quickstart_avatar.md).
-- Kaggle: open [kaggle_hunyuan3d_avatar_embedded.ipynb](</Users/tim/Code environments/TRELLIS/notebooks/kaggle_hunyuan3d_avatar_embedded.ipynb>)
+- Kaggle: open [kaggle_hunyuan3d_avatar_embedded.ipynb](../notebooks/kaggle_hunyuan3d_avatar_embedded.ipynb)
   and follow [kaggle_quickstart_avatar.md](kaggle_quickstart_avatar.md).
 
 Both notebooks:

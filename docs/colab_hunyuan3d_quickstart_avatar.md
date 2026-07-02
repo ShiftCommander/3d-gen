@@ -1,7 +1,7 @@
 # Colab Quickstart (Hunyuan3D Avatar)
 
 ## Use This First
-Use [colab_hunyuan3d_avatar.ipynb](</Users/tim/Code environments/TRELLIS/notebooks/colab_hunyuan3d_avatar.ipynb>) for the primary avatar run on Colab.
+Use [colab_hunyuan3d_avatar.ipynb](../notebooks/colab_hunyuan3d_avatar.ipynb) for the primary avatar run on Colab.
 
 This notebook targets Colab T4 by default:
 - Hunyuan3D-2mini for shape generation.

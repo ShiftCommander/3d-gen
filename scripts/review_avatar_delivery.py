@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from __future__ import annotations
+
 import argparse
 import json
 import shutil
@@ -29,14 +31,18 @@ def summarize_bundle(bundle_root: Path) -> dict:
         [
             bundle_root / "model" / "avatar-man-1_final.glb",
             bundle_root / "avatar-man-1_final.glb",
+            *sorted(bundle_root.glob("*_hunyuan_textured.glb")),
         ]
     )
     raw_glb = find_first(
         [
             bundle_root / "model" / "avatar-man-1_final_raw.glb",
             bundle_root / "avatar-man-1_final_raw.glb",
+            *sorted(bundle_root.glob("*_hunyuan_shape.glb")),
         ]
     )
+    if not final_glb and not raw_glb:
+        final_glb = find_first(sorted(bundle_root.glob("*.glb")))
     turntable = find_first(
         [
             bundle_root / "preview" / "avatar-man-1_turntable_raw.mp4",
@@ -72,6 +78,7 @@ def summarize_bundle(bundle_root: Path) -> dict:
         data = read_json(manifest)
         out["selected_seed"] = data.get("selected_seed")
         out["selected_score_combined"] = data.get("selected_score_combined")
+        out["texture_status"] = data.get("texture_status")
     else:
         out["notes"].append("manifest.json missing")
 
@@ -83,6 +90,9 @@ def summarize_bundle(bundle_root: Path) -> dict:
             out["status"] = "PASS"
         else:
             out["status"] = "FAIL"
+    elif manifest and out.get("texture_status"):
+        out["status"] = "PASS" if out["texture_status"] == "PASS" else "FAIL"
+        out["notes"].append("acceptance_report.json missing; status derived from manifest texture_status")
     else:
         out["notes"].append("acceptance_report.json missing")
 
