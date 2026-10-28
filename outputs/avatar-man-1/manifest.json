@@ -1,0 +1,13 @@
+{
+  "pipeline": "Hunyuan3D-2mini + Hunyuan3D-Paint",
+  "input_image": "assets/custom/avatar-man-1.png",
+  "seed": 12345,
+  "octree_resolution": 320,
+  "num_inference_steps": 28,
+  "num_chunks": 12000,
+  "shape_glb": "avatar-man-1_final_raw.glb",
+  "final_glb": "avatar-man-1_final.glb",
+  "texture_status": "PASS",
+  "texture_error": null,
+  "elapsed_seconds": 123.45
+}

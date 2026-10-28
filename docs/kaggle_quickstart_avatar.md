@@ -3,7 +3,7 @@
 ## But
 Produire un bundle `.zip` contenant un GLB 3D depuis `avatar-man-1.png`.
 
-Le chemin Kaggle est Hunyuan3D, car il est plus leger que TRELLIS (retire de ce repo) sur GPU T4 et gere mieux la generation shape + texture.
+Le chemin Kaggle est Hunyuan3D (pipeline actuel du dépôt), léger sur GPU T4 et gérant la génération shape + texture.
 
 ## Hunyuan3D embedded
 Utilise [kaggle_hunyuan3d_avatar_embedded.ipynb](../notebooks/kaggle_hunyuan3d_avatar_embedded.ipynb).

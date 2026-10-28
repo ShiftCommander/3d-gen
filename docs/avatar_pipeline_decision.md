@@ -3,8 +3,8 @@
 ## Decision
 Use Hunyuan3D as the pipeline for the avatar delivery goal: a textured GLB avatar from one image.
 
-TRELLIS has been removed from this repo. There is no local fallback generator anymore — all avatar
-3D generation runs on Colab or Kaggle via the Hunyuan3D notebooks.
+This repo uses only the Hunyuan3D pipeline (Hunyuan3D-2mini shape + Hunyuan3D-Paint texture).
+There is no local GPU pipeline — generation runs on Colab or Kaggle T4.
 
 ## Why Hunyuan3D
 - The goal is a textured GLB avatar from one image.

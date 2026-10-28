@@ -56,6 +56,4 @@ them fresh from `group_id` at runtime rather than hardcoding them.
 
 ## License
 
-MIT — see [LICENSE](LICENSE). This repo was originally forked from
-[microsoft/TRELLIS](https://github.com/microsoft/TRELLIS); the TRELLIS 3D generation engine has
-since been removed in favor of the Hunyuan3D-based pipeline above.
+MIT — see [LICENSE](LICENSE). This repo provides the Hunyuan3D-based avatar generation pipeline only.

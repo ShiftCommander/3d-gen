@@ -60,6 +60,4 @@ coder en dur.
 
 ## Licence
 
-MIT — voir [LICENSE](LICENSE). Ce dépôt provient à l'origine d'un fork de
-[microsoft/TRELLIS](https://github.com/microsoft/TRELLIS) ; le moteur de génération 3D TRELLIS a
-depuis été retiré au profit du pipeline basé sur Hunyuan3D décrit ci-dessus.
+MIT — voir [LICENSE](LICENSE). Ce dépôt fournit uniquement le pipeline de génération d'avatar Hunyuan3D.
